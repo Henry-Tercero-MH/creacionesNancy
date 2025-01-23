@@ -56,6 +56,7 @@ export default function Footer() {
 
         <div className="border-top border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>&copy; 2025 Creaciones Nancy. Todos los derechos reservados.</p>
+          <span>by hemisterhe 4G</span>
         </div>
       </div>
     </footer>
