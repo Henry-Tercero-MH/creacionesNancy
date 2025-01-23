@@ -11,7 +11,7 @@ const Banner = () => {
         }}
       >
         <div className="absolute inset-0 bg-gray-900 bg-opacity-70">
-          <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+          <div className="container h-full d-flex align-items-center justify-content-between">
             <div className="text-white max-w-2xl">
               <h2 className="text-4xl font-mono mb-2 animate-fade-in text-rose-400">
                 Creaciones Nancy
@@ -20,7 +20,7 @@ const Banner = () => {
               <p className="text-xl mb-8 text-gray-300">
                 Vestidos para niñas con diseños unicos y exclusivos.
               </p>
-              <div className="flex space-x-4">
+              <div className="d-flex gap-3">
                 <button className="bg-pink-600 hover:bg-rose-700 text-white px-8 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-blue-900/50 font-mono">
                   Ver Colección
                 </button>
@@ -29,15 +29,15 @@ const Banner = () => {
                 </button>
               </div>
             </div>
-            <div className="flex space-x-6 items-center">
-              <div className="relative">
-                <span className="absolute top-0 right-0 text-sm bg-[#FF4F58] text-white px-2 py-1 rounded-full">
+            <div className="d-flex gap-3 align-items-center">
+              <div className="position-relative">
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   ¡Nuevo!
                 </span>
                 <img
                   src="src/assets/vestido10.jpg"
                   alt="Producto destacado"
-                  className="h-28 w-28 object-cover rounded-full"
+                  className="h-28 w-28 object-cover rounded-circle"
                 />
               </div>
               <div>
@@ -50,7 +50,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="container py-4">
         <h2 className="text-3xl font-mono text-blue-400 mb-4">Nuevo Ingreso</h2>
       </div>
     </div>
