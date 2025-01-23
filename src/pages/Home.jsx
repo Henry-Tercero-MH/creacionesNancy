@@ -21,7 +21,7 @@ const Home = () => {
       name: "Vestido Niña ",
       description: "Tallas 0-4",
       price: 130.0,
-      imageUrl: "src/assets/vestidoNiña.jpg",
+      imageUrl: "public/vestidoNiña.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -30,7 +30,7 @@ const Home = () => {
       description:
         "Las tallas grandes  en blanco se usan para  comunión  y las tallas  pequeñas para  Bautizo  y presentación Tallas 0.1.2.3. 4.6.8.10.12",
       price: 120.0,
-      imageUrl: "src/assets/comunion.jpg",
+      imageUrl: "public/comunion.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -38,7 +38,7 @@ const Home = () => {
       name: "Vestido Blanco",
       description: "Incluye Pelio Tallas 0.1.2.3.4.",
       price: 130.0,
-      imageUrl: "src/assets/vestidoPelio.jpg",
+      imageUrl: "public/vestidoPelio.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -46,7 +46,7 @@ const Home = () => {
       name: "Vestido Blanco",
       description: "Incluye Pelio Tallas 0.1.2.3",
       price: 100.0,
-      imageUrl: "src/assets/vestido4.jpg",
+      imageUrl: "public/vestido4.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -54,7 +54,7 @@ const Home = () => {
       name: "Vestido Blanco",
       description: "Incluye Pelio Tallas 0.1.2.3",
       price: 100.0,
-      imageUrl: "src/assets/vestido5.jpg",
+      imageUrl: "public/vestido5.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -62,7 +62,7 @@ const Home = () => {
       name: "Vestido Blanco",
       description: "Tallas 8.10.12. 14.16",
       price: 300.0,
-      imageUrl: "src/assets/vestido6.jpg",
+      imageUrl: "public/vestido6.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -70,7 +70,7 @@ const Home = () => {
       name: "Vestido Blanco sin mangas",
       description: "Tallas 0.1.2.3. 4.6.8.10.12",
       price: 130.0,
-      imageUrl: "src/assets/vestido7.jpg",
+      imageUrl: "public/vestido7.jpg",
       categories: ["Primera Comunion", "Bautizos"],
     },
     {
@@ -78,7 +78,7 @@ const Home = () => {
       name: "Vestido Abejitas",
       description: "Tallas 0.1.2.3. 4.6.8.  Abejas",
       price: 140.0,
-      imageUrl: "src/assets/vestido8.jpg",
+      imageUrl: "public/vestido8.jpg",
       categories: ["Alegres", ""],
     },
     {
@@ -86,7 +86,7 @@ const Home = () => {
       name: "Vestido Abejitas",
       description: "Colores: Rosado, Verde y Corinto Tallas ",
       price: 130.0,
-      imageUrl: "src/assets/vestido9.png",
+      imageUrl: "public/vestido9.png",
       categories: ["Casual", ""],
     },
     {
@@ -94,7 +94,7 @@ const Home = () => {
       name: "Vestido Verde maripositas",
       description: "Tallas 0.1.2.3. 4.6.8.10.12 ",
       price: 0.0,
-      imageUrl: "src/assets/vestido10.jpg",
+      imageUrl: "public/vestido10.jpg",
       categories: ["Casual", ""],
     },
   ];
