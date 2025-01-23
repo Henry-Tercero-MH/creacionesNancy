@@ -44,7 +44,7 @@ const Home = () => {
     {
       id: 4,
       name: "Vestido Blanco",
-      description: "Incluye Pelio Tallas 0.1.2.3",
+      description: "No incluye Pelio Tallas 0.1.2.3",
       price: 100.0,
       imageUrl: "/vestido4.jpg",
       categories: ["Primera Comunion", "Bautizos"],
@@ -52,7 +52,7 @@ const Home = () => {
     {
       id: 5,
       name: "Vestido Blanco",
-      description: "Incluye Pelio Tallas 0.1.2.3",
+      description: "No Incluye Pelio Tallas 0.1.2.3",
       price: 100.0,
       imageUrl: "/vestido5.jpg",
       categories: ["Primera Comunion", "Bautizos"],
@@ -60,7 +60,7 @@ const Home = () => {
     {
       id: 6,
       name: "Vestido Blanco",
-      description: "Tallas 8.10.12. 14.16",
+      description: "No incluye Pelio, Tallas 8.10.12. 14.16",
       price: 300.0,
       imageUrl: "/vestido6.jpg",
       categories: ["Primera Comunion", "Bautizos"],
@@ -95,6 +95,46 @@ const Home = () => {
       description: "Tallas 0.1.2.3. 4.6.8.10.12 ",
       price: 0.0,
       imageUrl: "/vestido10.jpg",
+      categories: ["Casual", ""],
+    },
+    {
+      id: 11,
+      name: "Vestido Rojo del amor",
+      description: "Tallas 0.1.2.3. 4.6.8.10 ",
+      price: 90.0,
+      imageUrl: "/vestido11.jpg",
+      categories: ["Casual", ""],
+    },
+    {
+      id: 12,
+      name: "Vestido Rosado",
+      description: "Tallas 0.1.2.3. 4.6.8.10 ",
+      price: 130.0,
+      imageUrl: "/vestido12.jpg",
+      categories: ["Casual", ""],
+    },
+    {
+      id: 13,
+      name: "Vestido Rosado",
+      description: "Tallas 0.1.2.3. 4.6.8.10 ",
+      price: 130.0,
+      imageUrl: "/vestido13.jpg",
+      categories: ["Casual", ""],
+    },
+    {
+      id: 14,
+      name: "Vestido Lila",
+      description: "Tallas 12 ",
+      price: 140.0,
+      imageUrl: "/vestido14.jpg",
+      categories: ["Casual", ""],
+    },
+    {
+      id: 15,
+      name: "Vestido Rosado con diseño floresita",
+      description: "Tallas 0.1.2.3. 4.6.8.10.12, incluye Pelio",
+      price: 130.0,
+      imageUrl: "/vestido15.jpg",
       categories: ["Casual", ""],
     },
   ];
@@ -136,7 +176,7 @@ const Home = () => {
               onMouseEnter={() => setHoveredItem(product.id)}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <div className="relative h-64">
+              <div className="relative h-96">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
