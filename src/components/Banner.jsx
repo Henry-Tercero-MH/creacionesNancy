@@ -42,7 +42,7 @@ const Banner = () => {
                   ¡Nuevo!
                 </span>
                 <img
-                  src="src/assets/vestido10.jpg"
+                  src="/vestido10.jpg"
                   alt="Producto destacado"
                   className="img-fluid rounded-circle w-auto w-md-100 shadow-lg"
                   style={{
