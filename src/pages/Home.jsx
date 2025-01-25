@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Banner from "../components/Banner";
 import { FaWhatsapp } from "react-icons/fa";
+import { Filter } from "lucide-react";
+import ShareCart from "../components/ShareCart";
 
-import {
-  Filter,
-  Terminal,
-  Coffee,
-  Cpu,
-  Github,
-  ShoppingCart,
-} from "lucide-react";
-
-const Home = () => {
+const Home = ({ cartItems, setCartItems }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(
+    "Todas las categorías"
+  );
+  const [sortOrder, setSortOrder] = useState("Más recientes");
+  const [isShareCartVisible, setIsShareCartVisible] = useState(false);
 
   const products = [
     {
@@ -173,6 +171,31 @@ const Home = () => {
 
   const formatPrice = (price) => `Q${price.toFixed(2)}`;
 
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+
+  const filteredProducts = products
+    .filter((product) => {
+      if (selectedCategory === "Todas las categorías") return true;
+      return product.categories.includes(selectedCategory);
+    })
+    .sort((a, b) => {
+      if (sortOrder === "Precio: Menor a Mayor") return a.price - b.price;
+      if (sortOrder === "Precio: Mayor a Menor") return b.price - a.price;
+      return 0;
+    });
+
+  const categorizedProducts = filteredProducts.sort((a, b) => {
+    const isAColor =
+      !a.categories.includes("Primera Comunion") &&
+      !a.categories.includes("Bautizos");
+    const isBColor =
+      !b.categories.includes("Primera Comunion") &&
+      !b.categories.includes("Bautizos");
+    return isAColor === isBColor ? 0 : isAColor ? -1 : 1;
+  });
+
   return (
     <div style={{ backgroundColor: "#042326", color: "#D1D5DB" }}>
       <Banner />
@@ -180,17 +203,24 @@ const Home = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex items-center space-x-4">
             <Filter className="w-5 h-5 text-gray-400 hidden md:block" />
-            <select className="bg-dark-800 text-gray-300 rounded-lg border border-blue-900/30 px-4 py-2">
+            <select
+              className="bg-dark-800 text-gray-300 rounded-lg border border-blue-900/30 px-4 py-2"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+            >
               <option>Todas las categorías</option>
               <option>Primera Comunion</option>
               <option>Alegres</option>
               <option>Casuales</option>
-              <option></option>
             </select>
           </div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <span className="text-gray-400 hidden md:block">Ordenar por:</span>
-            <select className="bg-dark-800 text-white-300 rounded-lg border border-blue-900/30 px-4 py-2">
+            <select
+              className="bg-dark-800 text-white-300 rounded-lg border border-blue-900/30 px-4 py-2"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
               <option>Más recientes</option>
               <option>Precio: Menor a Mayor</option>
               <option>Precio: Mayor a Menor</option>
@@ -201,10 +231,14 @@ const Home = () => {
       </div>
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {products.map((product) => (
+          {categorizedProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white-700 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 border border-blue-900/30"
+              className={`bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 ${
+                hoveredItem === product.id
+                  ? "scale-105 border border-blue-500"
+                  : ""
+              }`}
               onMouseEnter={() => setHoveredItem(product.id)}
               onMouseLeave={() => setHoveredItem(null)}
             >
@@ -234,20 +268,31 @@ const Home = () => {
                   <span className="text-2xl font-mono font-semibold text-white-400">
                     {formatPrice(product.price)}
                   </span>
-                  <a
-                    href="https://wa.me/43734112"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => addToCart(product)}
                     className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-mono flex items-center space-x-2"
                   >
-                    <span>Comprar</span>
+                    <span>Agregar</span>
                     <FaWhatsapp className="w-4 h-4 ml-2" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+        <div className="mt-8 text-center">
+          <button
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            onClick={() => setIsShareCartVisible(!isShareCartVisible)}
+          >
+            {isShareCartVisible
+              ? "Ocultar Compartir Carrito"
+              : "Mostrar Compartir Carrito"}
+          </button>
+        </div>
+        {isShareCartVisible && (
+          <ShareCart cartItems={cartItems} setCartItems={setCartItems} />
+        )}
       </section>
     </div>
   );
