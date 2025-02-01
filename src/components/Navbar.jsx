@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Heart, ShoppingCart, Search, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import ViewCart from "./Viewcart";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para el menú móvil
@@ -41,7 +42,7 @@ export default function Navbar() {
               </button>
               <Link to="/view-cart">
                 <button className="p-2 text-white hover:text-pink-600">
-                  <ShoppingCart size={20} />
+                  <ViewCart size={20} />
                 </button>
               </Link>
             </div>
