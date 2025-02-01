@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa"; // Asegúrate de tener esta librería instalada
 import { useNavigate } from "react-router-dom";
-import { formatPrice } from "./utils"; // Función para formatear los precios
 
 function ViewCart() {
   const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState(false);
   const [inputValue, setInputValue] = useState(""); // Estado para almacenar el enlace
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const [isShareCartVisible, setIsShareCartVisible] = useState(false);
   const navigate = useNavigate(); // Usamos navigate para redirigir a la URL después de pegar el enlace
 
   const handleSubmit = (e) => {
@@ -28,12 +24,6 @@ function ViewCart() {
     } else {
       setError(true);
     }
-  };
-
-  // Función para agregar al carrito (puedes personalizarla según tu lógica)
-  const addToCart = (product) => {
-    // Lógica para agregar al carrito
-    console.log("Producto agregado al carrito:", product);
   };
 
   return (
