@@ -11,7 +11,8 @@ export default function Footer() {
           <div className="col-12 col-md-3">
             <h3 className="text-lg font-bold mb-4">Creaciones Nancy</h3>
             <p className="text-gray-400">
-              Estamos para servite comunicate y solicita tu producto
+              Estamos para servite comunicate y solicita tu producto, Ubicanos
+              en Ruta 8 2-08, Zona 4 Plaza Terminal Kiosko 5, Sótano.
             </p>
           </div>
 

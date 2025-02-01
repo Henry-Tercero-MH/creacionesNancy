@@ -167,6 +167,14 @@ const Home = ({ cartItems, setCartItems }) => {
       imageUrl: "/vestido19.jpg",
       categories: ["Casual", ""],
     },
+    {
+      id: 20,
+      name: "Par de Aretes con diseño de Corona",
+      description: "plata",
+      price: 150.0,
+      imageUrl: "/areteCorona.jpg",
+      categories: ["Joyería", ""],
+    },
   ];
 
   const formatPrice = (price) => `Q${price.toFixed(2)}`;
@@ -212,6 +220,7 @@ const Home = ({ cartItems, setCartItems }) => {
               <option>Primera Comunion</option>
               <option>Alegres</option>
               <option>Casuales</option>
+              <option>Joyería</option>
             </select>
           </div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">

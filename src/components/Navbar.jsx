@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Heart, ShoppingCart, Search, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para el menú móvil
@@ -38,9 +39,11 @@ export default function Navbar() {
               <button className="p-2 text-white hover:text-pink-600">
                 <Heart size={20} />
               </button>
-              <button className="p-2 text-white hover:text-pink-600">
-                <ShoppingCart size={20} />
-              </button>
+              <Link to="/view-cart">
+                <button className="p-2 text-white hover:text-pink-600">
+                  <ShoppingCart size={20} />
+                </button>
+              </Link>
             </div>
 
             {/* Botón para abrir el menú en dispositivos móviles */}

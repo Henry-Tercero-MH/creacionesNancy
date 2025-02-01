@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ShareCart from "../components/ShareCart";
 import { useState } from "react";
+import ViewCart from "../components/Viewcart";
 
 const AppRoutes = () => {
   const [cartItems, setCartItems] = useState([]); // Estado para manejar el carrito
@@ -18,9 +19,9 @@ const AppRoutes = () => {
         />
         <Route path="/productos" element={<Productos />} />
         <Route
-          path="/share-cart"
+          path="/view-cart"
           element={
-            <ShareCart cartItems={cartItems} setCartItems={setCartItems} />
+            <ViewCart cartItems={cartItems} setCartItems={setCartItems} />
           }
         />
       </Routes>
