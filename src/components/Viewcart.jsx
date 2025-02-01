@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa"; // Asegúrate de tener esta librería instalada
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "./utils"; // Función para formatear los precios
@@ -11,22 +11,6 @@ function ViewCart() {
   const [isShareCartVisible, setIsShareCartVisible] = useState(false);
   const navigate = useNavigate(); // Usamos navigate para redirigir a la URL después de pegar el enlace
 
-  useEffect(() => {
-    // Comprobar si hay un enlace con los datos de carrito en la URL
-    const params = new URLSearchParams(window.location.search);
-    const encodedData = params.get("data");
-    if (encodedData) {
-      try {
-        const decodedData = JSON.parse(atob(encodedData)); // Decodificamos el base64
-        setCartItems(decodedData); // Actualizamos el carrito con los productos decodificados
-        setError(false); // Limpiamos errores anteriores si la decodificación es exitosa
-      } catch (error) {
-        console.error("Error al decodificar los datos:", error);
-        setError(true);
-      }
-    }
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const params = new URLSearchParams(inputValue.split("?")[1]); // Solo tomamos la parte de la query
@@ -35,19 +19,20 @@ function ViewCart() {
     if (encodedData && /^[A-Za-z0-9+/=]+$/.test(encodedData)) {
       try {
         const decodedData = JSON.parse(atob(encodedData));
-        setCartItems(decodedData); // Actualizamos el carrito con los productos decodificados
+        setCartItems(decodedData);
         setError(false); // Limpiamos errores anteriores si la decodificación es exitosa
       } catch (error) {
         console.error("Error al decodificar los datos:", error);
         setError(true);
       }
     } else {
-      setError(true); // Mostramos un error si el formato del enlace es incorrecto
+      setError(true);
     }
   };
 
   // Función para agregar al carrito (puedes personalizarla según tu lógica)
   const addToCart = (product) => {
+    // Lógica para agregar al carrito
     console.log("Producto agregado al carrito:", product);
   };
 
