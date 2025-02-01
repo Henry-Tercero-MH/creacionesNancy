@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import { FaWhatsapp } from "react-icons/fa";
 import { Filter } from "lucide-react";
 import ShareCart from "../components/ShareCart";
+import ViewCart from "../components/Viewcart";
 
 const Home = ({ cartItems, setCartItems }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -303,6 +304,9 @@ const Home = ({ cartItems, setCartItems }) => {
           <ShareCart cartItems={cartItems} setCartItems={setCartItems} />
         )}
       </section>
+      <div>
+        <ViewCart></ViewCart>
+      </div>
     </div>
   );
 };
