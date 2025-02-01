@@ -46,11 +46,6 @@ export default function Navbar() {
                   <ShareCart size={20} />
                 </button>
               </Link>
-              <Link to="/view-cart">
-                <button className="p-2 text-white hover:text-pink-600">
-                  <ViewCart size={20} />
-                </button>
-              </Link>
             </div>
 
             {/* Botón para abrir el menú en dispositivos móviles */}
