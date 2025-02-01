@@ -1,24 +1,29 @@
 import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
-function ShareCart({ cartItems, setCartItems }) {
+function ShareCart({ cartItems, setCartItems, allProducts }) {
   const [sharedLink, setSharedLink] = useState("");
 
-  // Generar enlace con los productos en formato JSON codificado en base64
+  // Generar enlace con los IDs de los productos en formato JSON codificado en base64
   const generarEnlace = () => {
-    const jsonString = JSON.stringify(cartItems);
-    const base64String = btoa(jsonString);
+    const productIds = cartItems.map((item) => item.id); // Solo tomamos los IDs de los productos
+    const jsonString = JSON.stringify(productIds);
+    const base64String = btoa(jsonString); // Codificamos en base64
     const link = `${window.location.origin}/share-cart?data=${base64String}`;
     setSharedLink(link);
   };
 
-  // Decodificar el enlace
+  // Decodificar el enlace y obtener los productos completos
   const decodificarEnlace = () => {
     const params = new URLSearchParams(window.location.search);
     const encodedData = params.get("data");
     if (encodedData) {
-      const decodedData = JSON.parse(atob(encodedData));
-      setCartItems(decodedData);
+      const decodedIds = JSON.parse(atob(encodedData)); // Decodificamos el base64
+      // Buscamos los productos completos en allProducts usando los IDs decodificados
+      const productosFiltrados = allProducts.filter((product) =>
+        decodedIds.includes(product.id)
+      );
+      setCartItems(productosFiltrados); // Actualizamos el estado con los productos completos
     }
   };
 
